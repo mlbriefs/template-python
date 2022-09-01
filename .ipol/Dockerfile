@@ -17,3 +17,12 @@ COPY . .
 
 # the execution will happen in the folder /workdir/exec
 # it will be created by IPOL
+
+# some QoL tweaks
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION python
+ENV PATH $bin:$PATH
+
+ENV HOME /home/ipol
+RUN groupadd -g 1000 ipol && useradd -m -u 1000 -g 1000 ipol -d $HOME
+USER ipol

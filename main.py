@@ -1,5 +1,11 @@
+import os
 import iio
 import numpy as np
+
+# if you need to access a file next to the source code, use the variable ROOT
+# for example:
+#    torch.load(os.path.join(ROOT, 'weights.pth'))
+ROOT = os.path.dirname(os.path.realpath(__file__))
 
 def main(input, output, sigma):
     u = iio.read(input)

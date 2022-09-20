@@ -1,4 +1,3 @@
-import os
 import iio
 import numpy as np
 
@@ -11,6 +10,11 @@ def main(input, output, sigma):
     iio.write(output, v)
 
 if __name__ == "__main__":
-    input = "input_0.png"
-    sigma = float(os.environ['sigma'])
-    main("input_0.png", "output.png", sigma)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", type=str, required=True)
+    parser.add_argument("--sigma", type=float, required=True)
+    parser.add_argument("--output", type=str, required=True)
+
+    args = parser.parse_args()
+    main(args.input, args.output, args.sigma)

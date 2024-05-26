@@ -1,2 +1,2 @@
-numpy
+numpy==1.26.4
 iio==0.0.3
